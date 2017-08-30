@@ -2,13 +2,16 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { selectBook } from '../actions/index';
 import { connect } from 'react-redux';
+import SearchBar from '../components/search_bar';
+
 
 class Header extends Component {
     constructor(props){
         super(props);
         this.state = {
-            searchedBook: ''
+            searchedBook:''
         }
+    this.makeAPIRequest = this.makeAPIRequest.bind(this);
     }
 
     makeAPIRequest(event, searchTerm) {
@@ -16,7 +19,6 @@ class Header extends Component {
         const config = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
         axios.get(config)
         .then( (response) => {
-            console.log(response);
             let book = {
                 title : response.data.items[0].volumeInfo.title,
                 pages: response.data.items[0].volumeInfo.pageCount,
@@ -24,29 +26,17 @@ class Header extends Component {
                 ? response.data.items[0].volumeInfo.industryIdentifiers[1].identifier
                 : null
             };
-            console.log(book);
             this.props.selectBook(book);
          })
         .catch( (err) => { console.warn(err) });
     }
     render(){
-        let searchTerm;
+        console.log(this.props);
         return (
             <div className="header">
                 <h1>My Books</h1>
-                  <input
-                      id="searchBox"
-                      onChange={ (event) => { searchTerm = event.target.value; } }
-                      className="form-control mr-sm-2" type="text" placeholder="Search for a Book" />
-                  <button
-                      className="btn btn-outline-success my-2 my-sm-0"
-                      type="submit"
-                      onClick={ (event) => { this.makeAPIRequest(event, searchTerm) } }
-                      >
-                      Search
-                  </button>
+                    <SearchBar APIRequest={this.makeAPIRequest}/>
             </div>
-
         )
     }
 }
