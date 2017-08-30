@@ -14,8 +14,12 @@ class BookDetail extends Component {
         return (
             <div id="book-details">
                 <BookImage />
-                <h2 className="title"><span>Title:</span> {this.props.book.title}</h2>
-                <h2 className="pages"><span>Pages:</span> {this.props.book.pages}</h2>
+                <div className="test">
+                    <h2 className="title"><span>Title:</span> {this.props.book.title}</h2>
+                    <h2 className="pages"><span>Pages:</span> {this.props.book.pages}</h2>
+                    <button className="btn btn-primary">Add Book to My Library</button>
+                </div>
+
             </div>
         )
     }
