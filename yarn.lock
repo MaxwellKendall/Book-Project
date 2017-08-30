@@ -2558,6 +2558,10 @@ normalizer@^1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/normalizer/-/normalizer-1.2.7.tgz#ec139ecb07e0648837e9ce9668df44e5a0d13e89"
 
+normalizr@^3.2.3:
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/normalizr/-/normalizr-3.2.3.tgz#88755c64de418b040fa6ad1329b2de5c3250ac49"
+
 npmlog@^4.0.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/npmlog/-/npmlog-4.1.2.tgz#08a7f2a8bf734604779a9efa4ad5cc717abb954b"

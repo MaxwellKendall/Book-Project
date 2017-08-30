@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { editBook, deleteBook } from '../actions/index';
+import * as actions from '../actions/index';
 
 class BookEditor extends Component {
     constructor(props){
@@ -28,9 +28,9 @@ class BookEditor extends Component {
         let pages = document.querySelector(`input.input_pages_el_${bookIndex}`).value;
         let title = document.querySelector(`input.input_title_el_${bookIndex}`).value;
         let oldBook = books[bookIndex];
-        console.log('here is the oldBook param to the AC from updateBook on Book_editory.js', oldBook);
+        console.log('here is the newBook param to the AC from updateBook on Book_editory.js', newBook);
         let newBook = { title: title, pages: pages, ISBN: null};
-        editBook_A_C(newBook, oldBook);
+        editBook_A_C({newBook, oldBook});
     }
 
     render () {
@@ -91,8 +91,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return {
-        deleteBook_a_c: (book) => dispatch(deleteBook(book)),
-        editBook_a_c: (newBook, oldBook) => dispatch(editBook(newBook, oldBook))
+        deleteBook_a_c: (book) => dispatch(actions.deleteBook(book)),
+        editBook_a_c: (newBook, oldBook) => dispatch(actions.editBook(newBook, oldBook))
     }
 }
 
