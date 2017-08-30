@@ -14,8 +14,13 @@ global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
 const $ = _$(window);
 
+
+// set up chai
+
 chaiJquery(chai, chai.util, $);
 
+
+//build render component
 function renderComponent(ComponentClass, props = {}, state = {}) {
   const componentInstance =  TestUtils.renderIntoDocument(
     <Provider store={createStore(reducers, state)}>
@@ -33,4 +38,4 @@ $.fn.simulate = function(eventName, value) {
   TestUtils.Simulate[eventName](this[0]);
 };
 
-export {renderComponent, expect};
+export { renderComponent, expect };
