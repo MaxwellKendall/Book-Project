@@ -1,7 +1,15 @@
+/*header*/
+
 .container,
 .header {
     display: flex;
     justify-content: flex-start;
+}
+.container div {
+    width: 100%;
+}
+ul {
+  padding: 0;
 }
 .header {
     padding: 10px;
@@ -9,29 +17,18 @@
 .header h1 {
     margin-right: auto;
 }
-.container div {
-    width: 100%;
-}
+
 input#searchBox {
     width: 35%;
     margin-right: 5px;
 }
-form.form-inline.my-2.my-lg-0 {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0px;
-}
 
-ul.list-group.col-sm-4 {
+/*my books panel*/
+
+ul.list-of-books {
+    width: 25%;
     display: flex;
     justify-content: flex-start;
-    flex-direction: column;
-}
-#book-details {
-    height: 600px;
-    width: 65%;
-    display: flex;
     flex-direction: column;
 }
 .list-group-item {
@@ -52,6 +49,16 @@ li:hover {
 button.btn.btn-secondary {
     width: 35%;
 }
+
+
+#book-details {
+    height: 600px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+}
+
+
 
 .hidden {
     display: none;

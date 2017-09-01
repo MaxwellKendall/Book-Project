@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { selectBook } from '../actions/index';
 import { connect } from 'react-redux';
-import SearchBar from '../components/search_bar';
+import SearchBar from '../components/header/search_bar';
 
 
 class Header extends Component {
