@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import NewBookForm from './new_book_form';
 
 const AddBook = (props) => {
-    const newBook_A_C = props.addBook;
-    const newBook_S = props.newBookState;
-    const showNewBookForm = props.showNewBookForm;
-    if (!newBook_S) {
+    const { newBook_A_C, newBookState, showNewBookForm, books } = props;
+    if (!newBookState) {
       return (
         <li
           className='btn btn-primary'
@@ -18,7 +16,9 @@ const AddBook = (props) => {
           return (
               <NewBookForm
                   exitForm={() => showNewBookForm(false)}
-                  newBook={newBook_A_C}/>
+                  newBook_A_C={newBook_A_C}
+                  books={books}
+              />
           )
       }
   }
